@@ -38,4 +38,15 @@ public class CriminalCaseRepositoryTest {
         //then
         Assertions.assertEquals("刑事案件1",all.get(0).getName());
     }
+    @Test
+    public void test_return_all_criminal_case_when_get_criminal_by_name(){
+        //given
+        criminalCaseRepository.save(new CriminalCase("刑事1",123456));
+        criminalCaseRepository.save(new CriminalCase("刑事2",12345));
+        criminalCaseRepository.save(new CriminalCase("刑事1",152364));
+        //when
+        List<CriminalCase> all = criminalCaseRepository.findByName("刑事1");
+        //then
+        Assertions.assertEquals(152364,all.get(1).getTime());
+    }
 }
