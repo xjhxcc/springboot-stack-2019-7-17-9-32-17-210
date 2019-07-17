@@ -1,7 +1,7 @@
 package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.entity.CriminalCase;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface CriminalCaseRepository extends JpaRepository<CriminalCase,Long> {
+public interface CriminalCaseRepository extends CrudRepository<CriminalCase,Long> {
 }

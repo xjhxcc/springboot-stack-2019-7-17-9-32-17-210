@@ -1,9 +1,10 @@
 package com.tw.apistackbase.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class CriminalCase {
+public class CriminalCase implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -12,8 +13,6 @@ public class CriminalCase {
     @Column(nullable = false)
     private Long time;
 
-    public CriminalCase() {
-    }
 
     public Long getId() {
         return id;
@@ -36,6 +35,10 @@ public class CriminalCase {
     }
 
     public void setTime(Long time) {
+        this.time = time;
+    }
+    public CriminalCase(String name, Long time) {
+        this.name = name;
         this.time = time;
     }
 }
