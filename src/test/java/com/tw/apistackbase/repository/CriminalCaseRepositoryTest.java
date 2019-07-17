@@ -1,6 +1,7 @@
 package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.entity.CriminalCase;
+import com.tw.apistackbase.entity.DetailInfo;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -58,5 +59,16 @@ public class CriminalCaseRepositoryTest {
         criminalCaseRepository.deleteById(case2.getId());
         //then
         Assertions.assertEquals(1,criminalCaseRepository.findAll().size());
+    }
+    @Test
+    public void test_return_criminal_case_when_find_all_contains_detail(){
+        //given
+        CriminalCase criminalCase = new CriminalCase("案件1", 789456,
+                new DetailInfo("缺钱", "社会环境影响"));
+        criminalCaseRepository.save(criminalCase);
+        //when
+        List<CriminalCase> actual=criminalCaseRepository.findAll();
+        //then
+        Assertions.assertEquals("缺钱",actual.get(0).getDetailInfo().getSubjective());
     }
 }

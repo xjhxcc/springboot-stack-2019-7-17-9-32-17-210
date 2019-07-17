@@ -12,6 +12,8 @@ public class CriminalCase implements Serializable {
     private String name;
     @Column(nullable = false)
     private long time;
+    @OneToOne(cascade = CascadeType.ALL)
+    private DetailInfo detailInfo;
 
 
     public Long getId() {
@@ -40,5 +42,19 @@ public class CriminalCase implements Serializable {
     public CriminalCase(String name, long time) {
         this.name = name;
         this.time = time;
+    }
+
+    public DetailInfo getDetailInfo() {
+        return detailInfo;
+    }
+
+    public void setDetailInfo(DetailInfo detailInfo) {
+        this.detailInfo = detailInfo;
+    }
+
+    public CriminalCase(String name, long time, DetailInfo detailInfo) {
+        this.name = name;
+        this.time = time;
+        this.detailInfo = detailInfo;
     }
 }

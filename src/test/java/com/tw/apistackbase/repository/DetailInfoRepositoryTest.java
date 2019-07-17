@@ -15,9 +15,8 @@ public class DetailInfoRepositoryTest {
     @Autowired
     private DetailInfoRepository detailInfoRepository;
     @Test
-    public void test_return_criminal_case_when_get_criminal_case_by_id(){
+    public void test_return_detail_info_when_call_find_all_by_id(){
         //given
-        long time=123456789;
         DetailInfo detailInfo = detailInfoRepository
                 .save(new DetailInfo("缺钱", "社会环境影响"));
         //when
