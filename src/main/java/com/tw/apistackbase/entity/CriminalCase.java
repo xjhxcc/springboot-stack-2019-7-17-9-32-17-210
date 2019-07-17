@@ -14,7 +14,22 @@ public class CriminalCase implements Serializable {
     private long time;
     @OneToOne(cascade = CascadeType.ALL)
     private DetailInfo detailInfo;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Procuratorate procuratorate;
 
+    public CriminalCase(String name, long time, Procuratorate procuratorate) {
+        this.name = name;
+        this.time = time;
+        this.procuratorate = procuratorate;
+    }
+
+    public Procuratorate getProcuratorate() {
+        return procuratorate;
+    }
+
+    public void setProcuratorate(Procuratorate procuratorate) {
+        this.procuratorate = procuratorate;
+    }
 
     public Long getId() {
         return id;

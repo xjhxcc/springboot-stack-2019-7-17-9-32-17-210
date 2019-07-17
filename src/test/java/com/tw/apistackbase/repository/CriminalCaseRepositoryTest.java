@@ -2,6 +2,7 @@ package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.entity.CriminalCase;
 import com.tw.apistackbase.entity.DetailInfo;
+import com.tw.apistackbase.entity.Procuratorate;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -70,5 +71,16 @@ public class CriminalCaseRepositoryTest {
         List<CriminalCase> actual=criminalCaseRepository.findAll();
         //then
         Assertions.assertEquals("缺钱",actual.get(0).getDetailInfo().getSubjective());
+    }
+    @Test
+    public void test_return_criminal_case_when_find_all_contains_procuratorate(){
+        //given
+        CriminalCase criminalCase = new CriminalCase("案件", 122356,
+                new Procuratorate("1号检察院"));
+        criminalCaseRepository.save(criminalCase);
+        //when
+        List<CriminalCase> actual=criminalCaseRepository.findAll();
+        //then
+        Assertions.assertEquals("1号检察院",actual.get(0).getProcuratorate().getName());
     }
 }
