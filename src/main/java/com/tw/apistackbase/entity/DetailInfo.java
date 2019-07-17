@@ -3,7 +3,7 @@ package com.tw.apistackbase.entity;
 import javax.persistence.*;
 
 @Entity
-public class ConstitutiveRequirement {
+public class DetailInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,7 +36,7 @@ public class ConstitutiveRequirement {
         this.objective = objective;
     }
 
-    public ConstitutiveRequirement(String subjective, String objective) {
+    public DetailInfo(String subjective, String objective) {
         this.subjective = subjective;
         this.objective = objective;
     }
