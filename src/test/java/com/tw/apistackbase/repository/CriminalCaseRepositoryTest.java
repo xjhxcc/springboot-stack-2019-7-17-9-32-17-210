@@ -49,4 +49,14 @@ public class CriminalCaseRepositoryTest {
         //then
         Assertions.assertEquals(152364,all.get(1).getTime());
     }
+    @Test
+    public void test_return_true_when_call_delete_by_id(){
+        //given
+        criminalCaseRepository.save(new CriminalCase("刑事1",123456));
+        CriminalCase case2 = criminalCaseRepository.save(new CriminalCase("刑事2", 12345));
+        //when
+        criminalCaseRepository.deleteById(case2.getId());
+        //then
+        Assertions.assertEquals(1,criminalCaseRepository.findAll().size());
+    }
 }
