@@ -11,7 +11,7 @@ public class CriminalCase implements Serializable {
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
-    private Long time;
+    private long time;
 
 
     public Long getId() {
@@ -30,14 +30,14 @@ public class CriminalCase implements Serializable {
         this.name = name;
     }
 
-    public Long getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(Long time) {
+    public void setTime(long time) {
         this.time = time;
     }
-    public CriminalCase(String name, Long time) {
+    public CriminalCase(String name, long time) {
         this.name = name;
         this.time = time;
     }

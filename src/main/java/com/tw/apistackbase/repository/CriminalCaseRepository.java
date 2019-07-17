@@ -1,7 +1,10 @@
 package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.entity.CriminalCase;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CriminalCaseRepository extends CrudRepository<CriminalCase,Long> {
+import java.util.List;
+
+public interface CriminalCaseRepository extends JpaRepository<CriminalCase,Long> {
+    List<CriminalCase> findAllByOrderByTimeDesc();
 }
